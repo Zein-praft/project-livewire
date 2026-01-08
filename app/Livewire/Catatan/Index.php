@@ -25,11 +25,21 @@ class Index extends Component
 
     public function render()
     {
-        $catatans = Catatan::orderBy('created_at', 'desc')
-        ->paginate(5);
+        // $catatans = Catatan::orderBy('created_at', 'desc')
+        // ->paginate(5);
+
+        // return view('livewire.catatan.index', [
+        //     'catatans' => $catatans,
+        // ]);
+        // return view('livewire.catatan.index', [
+        //     'data' => 'Hello Wolrd'
+        // ]);
+        $users = \App\Models\User::orderBy('id', 'asc')
+            ->take(10) 
+            ->get();
 
         return view('livewire.catatan.index', [
-            'catatans' => $catatans,
+            'users' => $users,
         ]);
     }
 
