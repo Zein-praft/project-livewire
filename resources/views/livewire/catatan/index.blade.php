@@ -1,36 +1,21 @@
-<div class="p-6">
-    <h1 class="text-2xl font-bold mb-6">Daftar User (1 - 10)</h1>
-
-    @if($users->isEmpty())
-        <p class="text-gray-500">Belum ada user.</p>
-    @else
-        <div class="border border-gray-700 rounded-lg overflow-hidden">
-            <table class="w-full text-left">
-                <thead class="bg-gray-800 text-white">
-                    <tr>
-                        <th class="px-4 py-2">ID</th>
-                        <th class="px-4 py-2">Nama</th>
-                        <th class="px-4 py-2">Email</th>
-                        <th class="px-4 py-2">Dibuat</th>
+<div>
+    {{-- TABEL USER --}}
+    <div class="bg-gray-900 p-6 rounded-xl shadow mb-6">
+        <h2 class="text-lg font-bold text-white mb-4">factory users</h2>
+        <button wire:click="createUser" type="button" class="mb-5 bg-blue-500 hover:bg-blue-800 rounded-lg font-medium text-sm px-5 py-2.5 cursor-pointer"> buat user baru</button>
+        <table class="w-full text-sm text-gray-300">
+            {{-- <thead>
+                {{-- <tr class="border-gray-700"> --}}
+                {{-- </tr> --}}
+            {{-- </thead> --}}
+            <tbody>
+                @foreach ($users as $user)
+                    <tr class="border-gray-800 hover:bg-gray-800">
+                        <td class="py-2">{{ $user->name }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach($users as $user)
-                        <tr class="border-t border-gray-700 hover:bg-gray-900">
-                            <td class="px-4 py-3">{{ $user->id }}</td>
-                            <td class="px-4 py-3">{{ $user->name }}</td>
-                            <td class="px-4 py-3">{{ $user->email }}</td>
-                            <td class="px-4 py-3">{{ $user->created_at->format('d M Y H:i') }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    @endif
-    <style>
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #333; }
-        th { background-color: #222; color: white; }
-        tr:hover { background-color: #1a1a1a; }
-    </style>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>

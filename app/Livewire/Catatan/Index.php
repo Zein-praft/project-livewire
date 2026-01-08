@@ -3,6 +3,8 @@
 namespace App\Livewire\Catatan;
 
 use App\Models\Catatan;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Flux\Flux;
 use Livewire\WithPagination;
 use Livewire\Component;
@@ -34,12 +36,19 @@ class Index extends Component
         // return view('livewire.catatan.index', [
         //     'data' => 'Hello Wolrd'
         // ]);
-        $users = \App\Models\User::orderBy('id', 'asc')
-            ->take(10) 
-            ->get();
-
         return view('livewire.catatan.index', [
-            'users' => $users,
+            'catatans' => Catatan::latest()->paginate(5),
+            'users'    => User::latest()->get() 
+        ]);
+
+    }
+
+    public function createUser()
+    {
+        User::create([
+            'name'      => 'Mamad',
+            'email'     => 'Mamad@gmail.com',
+            'password'  => Hash::make('password'),
         ]);
     }
 
