@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catatan', function (Blueprint $table) {
+        Schema::create('catatan', function (Blueprint $table) {        
         $table->id();               // Primary key auto-increment
         $table->string('judul');    // Kolom string untuk judul
-        $table->text('konten');     // Kolom teks untuk isi catatan
+        $table->text('isi');     // Kolom teks untuk isi catatan
         $table->timestamps();       // Kolom created_at dan updated_at
         });
     }

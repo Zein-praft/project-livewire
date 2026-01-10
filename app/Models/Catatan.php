@@ -2,17 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Catatan extends Model
 {
-    use HasFactory;
-
-    protected $table = 'catatan';
-
-    protected $fillable = [
-        'judul',
-        'isi',
-    ];
+    protected $table = 'catatan'; // karena tidak ikuti konvensi plural
+    protected $fillable = ['judul', 'isi'];
 }
