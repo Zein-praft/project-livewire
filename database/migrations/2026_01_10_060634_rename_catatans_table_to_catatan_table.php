@@ -12,7 +12,7 @@ return new class extends Migration
     {
         Schema::rename('catatans', 'catatan');
     }
-
+// testing
     /**
      * Reverse the migrations.
      */
