@@ -24,7 +24,7 @@ class Create extends Component
             'isi'   => $this->isi,
         ]);
         $this->reset(['judul', 'isi']);
-        $this->dispacth('catatanCreated');
+        $this->dispatch('catatanCreated');
         Flux::modal('create-catatan')->close();
         session()->flash('success', 'Catatan berhasil dibuat.');
 

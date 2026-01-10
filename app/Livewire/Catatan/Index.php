@@ -40,7 +40,6 @@ class Index extends Component
             'catatans' => Catatan::latest()->paginate(5),
             'users'    => User::latest()->get() 
         ]);
-
     }
 
     public function createUser()
@@ -52,10 +51,10 @@ class Index extends Component
         ]);
     }
 
-    public function delteCatatan()
+    public function deleteCatatan()
     {
         Catatan::findOrFail($this->catatanId)->delete();
         Flux::modal('delete-catatan')->close();
-        session()->flash('succes', 'Catatan berhasil dihapus.');
+        session()->flash('success', 'Catatan berhasil dihapus.');
     }
 }
